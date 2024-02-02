@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import React from 'react';
-import { JoinDiscord } from './JoinDiscord';
-import { AppbarAuth } from './AppbarAuth';
-import { useSession } from 'next-auth/react';
-import Logo from './landing/logo/logo';
-import { Button } from './ui/button';
-import { Sparkles } from 'lucide-react';
-import { ThemeToggler } from './ThemeToggler';
-import { NavigationMenu } from './landing/appbar/nav-menu';
+import Link from 'next/link'
+import React from 'react'
+import { JoinDiscord } from './JoinDiscord'
+import { AppbarAuth } from './AppbarAuth'
+import { useSession } from 'next-auth/react'
+import Logo from './landing/logo/logo'
+import { Button } from './ui/button'
+import { Sparkles } from 'lucide-react'
+import { ThemeToggler } from './ThemeToggler'
+import { NavigationMenu } from './landing/appbar/nav-menu'
 
 export const Appbar = () => {
-  const session = useSession();
+  const session = useSession()
 
   return (
     <>
@@ -71,5 +71,5 @@ export const Appbar = () => {
       </nav>
       <div className="h-16 w-full" />
     </>
-  );
-};
+  )
+}

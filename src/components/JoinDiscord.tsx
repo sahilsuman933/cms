@@ -1,10 +1,10 @@
-import { getOauthUrl } from '@/utiles/discord';
-import Link from 'next/link';
+import { getOauthUrl } from '@/utiles/discord'
+import Link from 'next/link'
 import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { Button } from './ui/button';
+} from '@/components/ui/navigation-menu'
+import { Button } from './ui/button'
 
 export const JoinDiscord = ({
   isNavigated = true,
@@ -20,7 +20,7 @@ export const JoinDiscord = ({
           Join Discord
         </NavigationMenuLink>
       </Link>
-    );
+    )
   }
 
   return (
@@ -29,5 +29,5 @@ export const JoinDiscord = ({
         Join Discord
       </Button>
     </Link>
-  );
-};
+  )
+}

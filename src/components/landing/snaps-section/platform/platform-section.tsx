@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import platform from '../../../../../public/platform/platform.png';
+import Image from 'next/image'
+import platform from '../../../../../public/platform/platform.png'
 
 const PlatformSection = () => {
   return (
@@ -14,7 +14,7 @@ const PlatformSection = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PlatformSection;
+export default PlatformSection

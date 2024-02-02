@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { Instagram, TwitterIcon, Youtube } from 'lucide-react';
-import Image from 'next/image';
-import playstore from '/public/platform/playstore.png';
-import Logo from '../logo/logo';
+import Link from 'next/link'
+import { Instagram, TwitterIcon, Youtube } from 'lucide-react'
+import Image from 'next/image'
+import playstore from '/public/platform/playstore.png'
+import Logo from '../logo/logo'
 
 const Footer = () => {
   return (
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,4 +1,4 @@
-import { tncContent } from '../../../../components/landing/footer/tnc/tnc-content';
+import { tncContent } from '../../../../components/landing/footer/tnc/tnc-content'
 
 const TermsAndConditionsPage = () => {
   return (
@@ -20,13 +20,13 @@ const TermsAndConditionsPage = () => {
                   {'. '}
                   {point.description}
                 </p>
-              );
+              )
             })}
           </div>
-        );
+        )
       })}
     </main>
-  );
-};
+  )
+}
 
-export default TermsAndConditionsPage;
+export default TermsAndConditionsPage

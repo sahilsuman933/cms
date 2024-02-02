@@ -218,4 +218,4 @@ export const privacyPolicyContent = [
     description:
       'You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.',
   },
-];
+]

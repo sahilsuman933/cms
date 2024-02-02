@@ -1,17 +1,17 @@
-'use client';
-import { useRouter } from 'next/navigation';
+'use client'
+import { useRouter } from 'next/navigation'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Folder } from '@/db/course';
-import { Button } from './ui/button';
-import { BackArrow } from '@/icons/BackArrow';
-import { useRecoilState } from 'recoil';
-import { sidebarOpen as sidebarOpenAtom } from '@/store/atoms/sidebar';
-import { useEffect } from 'react';
+} from '@/components/ui/accordion'
+import { Folder } from '@/db/course'
+import { Button } from './ui/button'
+import { BackArrow } from '@/icons/BackArrow'
+import { useRecoilState } from 'recoil'
+import { sidebarOpen as sidebarOpenAtom } from '@/store/atoms/sidebar'
+import { useEffect } from 'react'
 
 export function Sidebar({
   courseId,
@@ -20,14 +20,14 @@ export function Sidebar({
   fullCourseContent: Folder[]
   courseId: string
 }) {
-  const router = useRouter();
-  const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarOpenAtom);
+  const router = useRouter()
+  const [sidebarOpen, setSidebarOpen] = useRecoilState(sidebarOpenAtom)
 
   useEffect(() => {
     if (window.innerWidth < 500) {
-      setSidebarOpen(false);
+      setSidebarOpen(false)
     }
-  }, []);
+  }, [])
 
   const findPathToContent = (
     contents: any,
@@ -35,27 +35,27 @@ export function Sidebar({
     currentPath: any[] = [],
   ): any => {
     for (const content of contents) {
-      const newPath = [...currentPath, content.id];
+      const newPath = [...currentPath, content.id]
       if (content.id === targetId) {
-        return newPath;
+        return newPath
       }
       if (content.children) {
-        const childPath = findPathToContent(content.children, targetId, newPath);
+        const childPath = findPathToContent(content.children, targetId, newPath)
         if (childPath) {
-          return childPath;
+          return childPath
         }
       }
     }
-    return null;
-  };
+    return null
+  }
 
   const navigateToContent = (contentId: any) => {
-    const pathArray = findPathToContent(fullCourseContent, contentId);
+    const pathArray = findPathToContent(fullCourseContent, contentId)
     if (pathArray) {
-      const path = `/courses/${courseId}/${pathArray.join('/')}`;
-      router.push(path);
+      const path = `/courses/${courseId}/${pathArray.join('/')}`
+      router.push(path)
     }
-  };
+  }
 
   const renderContent = (contents: any) => {
     return contents.map((content: any) => {
@@ -73,7 +73,7 @@ export function Sidebar({
               {renderContent(content.children)}
             </AccordionContent>
           </AccordionItem>
-        );
+        )
       }
       // This is a video or a content item without children
       return (
@@ -81,25 +81,25 @@ export function Sidebar({
           key={content.id}
           className="p-2"
           onClick={() => {
-            navigateToContent(content.id);
+            navigateToContent(content.id)
           }}
         >
           {content.title}
         </div>
-      );
-    });
-  };
+      )
+    })
+  }
 
   if (!sidebarOpen) {
     return (
       <div>
         <ToggleButton
           onClick={() => {
-            setSidebarOpen(true);
+            setSidebarOpen(true)
           }}
         />
       </div>
-    );
+    )
   }
 
   return (
@@ -108,7 +108,7 @@ export function Sidebar({
         <div className="flex">
           <ToggleButton
             onClick={() => {
-              setSidebarOpen((s) => !s);
+              setSidebarOpen((s) => !s)
             }}
           />
           <GoBackButton />
@@ -119,7 +119,7 @@ export function Sidebar({
         </Accordion>
       </div>
     </div>
-  );
+  )
 }
 
 export function ToggleButton({ onClick }: { onClick: () => void }) {
@@ -139,26 +139,26 @@ export function ToggleButton({ onClick }: { onClick: () => void }) {
         <path stroke="currentColor" d="M1 1h15M1 7h15M1 13h15" />
       </svg>
     </button>
-  );
+  )
 }
 
 function GoBackButton() {
-  const router = useRouter();
+  const router = useRouter()
 
   const goBack = () => {
-    const pathSegments = window.location.pathname.split('/');
+    const pathSegments = window.location.pathname.split('/')
 
     // Remove the last segment of the path
-    pathSegments.pop();
+    pathSegments.pop()
 
     // Check if it's the last page in the course, then go to root
     if (pathSegments.length <= 2) {
-      router.push('/');
+      router.push('/')
     } else {
-      const newPath = pathSegments.join('/');
-      router.push(newPath);
+      const newPath = pathSegments.join('/')
+      router.push(newPath)
     }
-  };
+  }
 
   return (
     <div className="w-full ml-4">
@@ -167,5 +167,5 @@ function GoBackButton() {
         <BackArrow /> <div className="pl-4">Go Back</div>
       </Button>
     </div>
-  );
+  )
 }

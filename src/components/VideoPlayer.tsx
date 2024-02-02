@@ -1,5 +1,5 @@
-'use client';
-import React, { useEffect, useRef, useState } from 'react';
+'use client'
+import React, { useEffect, useRef, useState } from 'react'
 
 // mpdUrl => https://cloudfront.enet/video/video.mp4
 // thumbnail => https://cloudfront.enet/video/thumbnail.jpg
@@ -13,46 +13,46 @@ export const VideoPlayer = ({
   thumbnail: string
   subtitles: string
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [player, setPlayer] = useState<any>(null);
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [player, setPlayer] = useState<any>(null)
 
   useEffect(() => {
     if (!player) {
-      return;
+      return
     }
     const handleKeyPress = (event: any) => {
       switch (event.code) {
       case 'Space': // Space bar for play/pause
         if (player.paused()) {
-          player.play();
-          event.stopPropagation();
+          player.play()
+          event.stopPropagation()
         } else {
-          player.pause();
-          event.stopPropagation();
+          player.pause()
+          event.stopPropagation()
         }
-        break;
+        break
       case 'ArrowRight': // Right arrow for seeking forward 5 seconds
-        player.currentTime(player.currentTime() + 5);
-        event.stopPropagation();
-        break;
+        player.currentTime(player.currentTime() + 5)
+        event.stopPropagation()
+        break
       case 'ArrowLeft': // Left arrow for seeking backward 5 seconds
-        player.currentTime(player.currentTime() - 5);
-        event.stopPropagation();
-        break;
+        player.currentTime(player.currentTime() - 5)
+        event.stopPropagation()
+        break
       }
-    };
+    }
 
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener('keydown', handleKeyPress)
 
     // Cleanup function
     return () => {
-      document.removeEventListener('keydown', handleKeyPress);
-    };
-  }, [player]);
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [player])
 
   useEffect(() => {
     if (!videoRef.current) {
-      return;
+      return
     }
     window.setTimeout(() => {
       const player = (window as any).videojs(
@@ -69,8 +69,8 @@ export const VideoPlayer = ({
         },
         function () {
           //@ts-ignore
-          player.eme();
-          setPlayer(player);
+          player.eme()
+          setPlayer(player)
           if (mpdUrl.endsWith('.mpd')) {
             //@ts-ignore
             this.src({
@@ -80,35 +80,35 @@ export const VideoPlayer = ({
                 'com.widevine.alpha':
                   'https://widevine-dash.ezdrm.com/proxy?pX=288FF5&user_id=MTAwMA==',
               },
-            });
+            })
           } else if (mpdUrl.endsWith('.m3u8')) {
             //@ts-ignore
             this.src({
               src: mpdUrl,
               type: 'application/x-mpegURL',
-            });
+            })
           } else {
             //@ts-ignore
             this.src({
               src: mpdUrl,
               type: 'video/mp4',
-            });
+            })
           }
 
           //@ts-ignore
           this.on('keystatuschange', (event: any) => {
-            console.log('event: ', event);
-          });
+            console.log('event: ', event)
+          })
           player.seekButtons({
             forward: 10,
             back: 10,
-          });
+          })
         },
-      );
-    }, 1000);
+      )
+    }, 1000)
 
-    return () => {};
-  }, [videoRef.current]);
+    return () => {}
+  }, [videoRef.current])
 
   return (
     <div className="py-2">
@@ -136,5 +136,5 @@ export const VideoPlayer = ({
         <track kind="subtitles" src={subtitles} srcLang="en" label="English" />
       </video>
     </div>
-  );
-};
+  )
+}

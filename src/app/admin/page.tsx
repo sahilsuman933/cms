@@ -1,15 +1,15 @@
-'use client';
-import React, { useState } from 'react';
+'use client'
+import React, { useState } from 'react'
 
 export default function Courses() {
-  const [title, setTitle] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [description, setDescription] = useState('');
-  const [slug, setSlug] = useState('');
-  const [id, setId] = useState('');
-  const [adminSecret, setAdminSecret] = useState('');
-  const [appxCourseId, setAppxCourseId] = useState('');
-  const [discordRoleId, setIdDiscordRoleId] = useState('');
+  const [title, setTitle] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
+  const [description, setDescription] = useState('')
+  const [slug, setSlug] = useState('')
+  const [id, setId] = useState('')
+  const [adminSecret, setAdminSecret] = useState('')
+  const [appxCourseId, setAppxCourseId] = useState('')
+  const [discordRoleId, setIdDiscordRoleId] = useState('')
 
   return (
     <div className="max-w-screen-xl justify-between mx-auto p-4 cursor-pointer grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -79,11 +79,11 @@ export default function Courses() {
             headers: {
               'Content-Type': 'application/json',
             },
-          });
+          })
         }}
       >
         Create
       </button>
     </div>
-  );
+  )
 }

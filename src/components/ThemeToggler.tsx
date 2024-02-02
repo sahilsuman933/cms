@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { SunDimIcon, SunMoonIcon } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { Button } from './ui/button';
+import * as React from 'react'
+import { SunDimIcon, SunMoonIcon } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
+} from './ui/dropdown-menu'
 
 export function ThemeToggler() {
-  const { setTheme } = useTheme();
+  const { setTheme } = useTheme()
 
   return (
     <DropdownMenu>
@@ -35,5 +35,5 @@ export function ThemeToggler() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

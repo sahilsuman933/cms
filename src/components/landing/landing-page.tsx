@@ -1,25 +1,25 @@
-import { Button } from '../ui/button';
-import { ChevronRight, Medal } from 'lucide-react';
-import Link from 'next/link';
-import localFont from 'next/font/local';
-import { cn } from '@/lib/utils';
-import { Poppins } from 'next/font/google';
-import PlatformSection from './snaps-section/platform/platform-section';
-import DashboardSection from './snaps-section/dashboard/dashboard-section';
-import TrustedBySection from './trustedby-section/trusted-by';
-import WhyUsSection from './us-section/why-us';
-import AboutUsSection from './us-section/about-us';
-import DiscordSection from './snaps-section/discord-section/discord-section';
-import PreFooterSection from './footer/pre-footer/pre-footer';
+import { Button } from '../ui/button'
+import { ChevronRight, Medal } from 'lucide-react'
+import Link from 'next/link'
+import localFont from 'next/font/local'
+import { cn } from '@/lib/utils'
+import { Poppins } from 'next/font/google'
+import PlatformSection from './snaps-section/platform/platform-section'
+import DashboardSection from './snaps-section/dashboard/dashboard-section'
+import TrustedBySection from './trustedby-section/trusted-by'
+import WhyUsSection from './us-section/why-us'
+import AboutUsSection from './us-section/about-us'
+import DiscordSection from './snaps-section/discord-section/discord-section'
+import PreFooterSection from './footer/pre-footer/pre-footer'
 
 const headingFont = localFont({
   src: '../../../public/fonts/font.woff2',
-});
+})
 
 const textFont = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
-});
+})
 
 export default function LandingPage() {
   return (
@@ -104,5 +104,5 @@ export default function LandingPage() {
       {/* PreFooter Section */}
       <PreFooterSection />
     </main>
-  );
+  )
 }

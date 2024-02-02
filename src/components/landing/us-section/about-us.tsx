@@ -41,7 +41,7 @@ const AboutUsSection = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutUsSection;
+export default AboutUsSection

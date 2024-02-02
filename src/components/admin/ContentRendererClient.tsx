@@ -1,10 +1,10 @@
-'use client';
-import { useSearchParams } from 'next/navigation';
-import { QualitySelector } from '../QualitySelector';
-import { VideoPlayerSegment } from '@/components/VideoPlayerSegment';
-import { useRouter } from 'next/navigation';
-import VideoContentChapters from '../VideoContentChapters';
-import { useState } from 'react';
+'use client'
+import { useSearchParams } from 'next/navigation'
+import { QualitySelector } from '../QualitySelector'
+import { VideoPlayerSegment } from '@/components/VideoPlayerSegment'
+import { useRouter } from 'next/navigation'
+import VideoContentChapters from '../VideoContentChapters'
+import { useState } from 'react'
 
 export const ContentRendererClient = ({
   metadata,
@@ -27,18 +27,18 @@ export const ContentRendererClient = ({
 }) => {
   const [showChapters, setShowChapters] = useState(
     metadata.segments?.length > 0,
-  );
-  const searchParams = useSearchParams();
-  const router = useRouter();
+  )
+  const searchParams = useSearchParams()
+  const router = useRouter()
   //@ts-ignore
-  const quality: '720' | '1080' | '360' | null = searchParams.get('quality');
+  const quality: '720' | '1080' | '360' | null = searchParams.get('quality')
 
   if (!metadata) {
-    return <div>Loading</div>;
+    return <div>Loading</div>
   }
 
-  const mpdUrl = metadata?.[quality || '1080'] || '';
-  let source = {};
+  const mpdUrl = metadata?.[quality || '1080'] || ''
+  let source = {}
 
   if (mpdUrl.endsWith('.mpd')) {
     //@ts-ignore
@@ -49,24 +49,24 @@ export const ContentRendererClient = ({
         'com.widevine.alpha':
           'https://widevine-dash.ezdrm.com/proxy?pX=288FF5&user_id=MTAwMA==',
       },
-    };
+    }
   } else if (mpdUrl.endsWith('.m3u8')) {
     //@ts-ignore
     source = {
       src: mpdUrl,
       type: 'application/x-mpegURL',
-    };
+    }
   } else {
     //@ts-ignore
     source = {
       src: mpdUrl,
       type: 'video/mp4',
-    };
+    }
   }
 
   const toggleShowChapters = () => {
-    setShowChapters((prev) => !prev);
-  };
+    setShowChapters((prev) => !prev)
+  }
 
   return (
     <div className="flex gap-2 items-start flex-col lg:flex-row">
@@ -122,8 +122,8 @@ export const ContentRendererClient = ({
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded p-2"
                 onClick={() => {
-                  scrollTo({ top: 0, behavior: 'smooth' });
-                  toggleShowChapters();
+                  scrollTo({ top: 0, behavior: 'smooth' })
+                  toggleShowChapters()
                 }}
               >
                 View All Chapters
@@ -138,12 +138,12 @@ export const ContentRendererClient = ({
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4"
               onClick={() => {
-                const originalPath = window.location.pathname;
-                const parts = originalPath.split('/');
-                parts.pop();
-                parts.push(nextContent.id.toString());
-                const newPath = parts.join('/');
-                router.push(newPath);
+                const originalPath = window.location.pathname
+                const parts = originalPath.split('/')
+                parts.pop()
+                parts.push(nextContent.id.toString())
+                const newPath = parts.join('/')
+                router.push(newPath)
               }}
             >
               {nextContent.title}
@@ -161,5 +161,5 @@ export const ContentRendererClient = ({
         />
       )}
     </div>
-  );
-};
+  )
+}

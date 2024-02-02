@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Button } from '@/components/ui/button';
+import * as React from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -9,15 +9,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer';
-import { MenuIcon } from 'lucide-react';
-import Link from 'next/link';
-import { useSession } from 'next-auth/react';
-import { JoinDiscord } from '@/components/JoinDiscord';
-import { AppbarAuth } from '@/components/AppbarAuth';
+} from '@/components/ui/drawer'
+import { MenuIcon } from 'lucide-react'
+import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { JoinDiscord } from '@/components/JoinDiscord'
+import { AppbarAuth } from '@/components/AppbarAuth'
 
 export function NavigationMenu() {
-  const session = useSession();
+  const session = useSession()
 
   return (
     <Drawer>
@@ -88,5 +88,5 @@ export function NavigationMenu() {
         </div>
       </DrawerContent>
     </Drawer>
-  );
+  )
 }

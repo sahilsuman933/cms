@@ -1,6 +1,6 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import { ContentCard } from '../ContentCard';
+'use client'
+import { useRouter } from 'next/navigation'
+import { ContentCard } from '../ContentCard'
 
 export const AdminCourseContent = ({
   courseContent,
@@ -13,7 +13,7 @@ export const AdminCourseContent = ({
     id: number
   }[]
 }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div>
@@ -25,12 +25,12 @@ export const AdminCourseContent = ({
               title={content.title}
               image={content.image || ''}
               onClick={() => {
-                router.push(`/admin/content/${courseId}/${content.id}`);
+                router.push(`/admin/content/${courseId}/${content.id}`)
               }}
             />
           ),
         )}
       </div>
     </div>
-  );
-};
+  )
+}

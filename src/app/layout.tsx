@@ -1,18 +1,18 @@
-import React from 'react';
-import { Inter as FontSans } from 'next/font/google';
-import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
-import './globals.css';
-import { Appbar } from '@/components/Appbar';
-import { Providers } from './providers';
-import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
-import { siteConfig } from '@/config/site-config';
-import Footer from '@/components/landing/footer/footer';
+import React from 'react'
+import { Inter as FontSans } from 'next/font/google'
+import { cn } from '@/lib/utils'
+import type { Metadata } from 'next'
+import './globals.css'
+import { Appbar } from '@/components/Appbar'
+import { Providers } from './providers'
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
+import { siteConfig } from '@/config/site-config'
+import Footer from '@/components/landing/footer/footer'
 
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
-});
+})
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       href: '/harkirat.png',
     },
   ],
-};
+}
 
 export default function RootLayout({
   children,
@@ -46,5 +46,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

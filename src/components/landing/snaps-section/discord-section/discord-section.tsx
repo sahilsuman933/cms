@@ -1,8 +1,8 @@
-import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import discord from '../../../../../public/platform/discord.png';
+import { Button } from '@/components/ui/button'
+import { ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import discord from '../../../../../public/platform/discord.png'
 
 const DiscordSection = () => {
   return (
@@ -48,7 +48,7 @@ const DiscordSection = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DiscordSection;
+export default DiscordSection

@@ -1,8 +1,8 @@
-import { Folder } from '@/db/course';
-import { ContentRenderer } from './admin/ContentRenderer';
-import { FolderView } from './FolderView';
-import { Sidebar } from './Sidebar';
-import { NotionRenderer } from './NotionRenderer';
+import { Folder } from '@/db/course'
+import { ContentRenderer } from './admin/ContentRenderer'
+import { FolderView } from './FolderView'
+import { Sidebar } from './Sidebar'
+import { NotionRenderer } from './NotionRenderer'
 
 export const CourseView = ({
   rest,
@@ -55,5 +55,5 @@ export const CourseView = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

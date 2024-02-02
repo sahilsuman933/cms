@@ -53,4 +53,4 @@ export const whyUs: TwhyUs = [
     description:
       'Harkirat personally creates assignments after every lecture, so it\'s extremely hands on.',
   },
-];
+]
